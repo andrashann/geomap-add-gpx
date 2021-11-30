@@ -9,7 +9,7 @@ if (typeof parser === 'undefined') {
 // these are the colors that the leaflet-color markers package has 
 // (https://github.com/pointhi/leaflet-color-markers) with the relevant route
 // colors
-const colors = {
+const gpxColors = {
   blue: '#2A81CB',
   gold: '#FFD326',
   red: '#CB2B3E',
@@ -37,7 +37,7 @@ setTimeout(() => {
         // let the user pick a color from the list (this is a string input, so 
         // ther might be a typo, but there is a default just in case
         let color = prompt("Válassz színt az alábbiak közül/Select one of these colors: 'blue', 'gold', 'red', 'green', 'orange', 'yellow', 'violet', 'grey', 'black'", "violet");
-        if (!color in colors) { color = 'violet' }
+        if (!color in gpxColors) { color = 'violet' }
 
         const reader = new FileReader()
         reader.readAsText(theFile, 'UTF-8')
@@ -78,13 +78,13 @@ setTimeout(() => {
             // the gpx specification
             trk.trkseg.forEach((trkseg => {
               const latLons = trkseg.trkpt.map((p) => [p.lat, p.lon])
-              const pL = L.polyline(latLons, { color: colors[color], weight: 8, opacity: 0.4 })
+              const pL = L.polyline(latLons, { color: gpxColors[color], weight: 8, opacity: 0.4 })
               // highlight the track on mouseover for better visibility
               pL.on('mouseover', function (e) {
                 e.target.setStyle({ opacity: 0.8, color: 'white' });
               });
               pL.on('mouseout', function (e) {
-                e.target.setStyle({ opacity: 0.4, color: colors[color] });
+                e.target.setStyle({ opacity: 0.4, color: gpxColors[color] });
               });
               pL.bindPopup(trk.name + '');
               pL.addTo(map);
