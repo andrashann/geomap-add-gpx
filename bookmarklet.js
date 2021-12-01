@@ -6,23 +6,23 @@ if (typeof parser === 'undefined') {
   document.getElementsByTagName('head')[0].appendChild(document.createElement('script')).src = 'https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/3.21.1/parser.min.js';
 }
 
-// these are the colors that the leaflet-color markers package has 
-// (https://github.com/pointhi/leaflet-color-markers) with the relevant route
-// colors
-const gpxColors = {
-  blue: '#2A81CB',
-  gold: '#FFD326',
-  red: '#CB2B3E',
-  green: '#2AAD27',
-  orange: '#CB8427',
-  yellow: '#CAC428',
-  violet: '#9C2BCB',
-  grey: '#7B7B7B',
-  black: '#3D3D3D',
-}
-
 // set timeout to wait for parser to be loaded
 setTimeout(() => {
+  // these are the colors that the leaflet-color markers package has 
+  // (https://github.com/pointhi/leaflet-color-markers) with the relevant route
+  // colors
+  const gpxColors = {
+    blue: '#2A81CB',
+    gold: '#FFD326',
+    red: '#CB2B3E',
+    green: '#2AAD27',
+    orange: '#CB8427',
+    yellow: '#CAC428',
+    violet: '#9C2BCB',
+    grey: '#7B7B7B',
+    black: '#3D3D3D',
+  }
+
   // open a prompt to select a gpx file
   const fileSelector = document.createElement('input');
   fileSelector.setAttribute('type', 'file');
